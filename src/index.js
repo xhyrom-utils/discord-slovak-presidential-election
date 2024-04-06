@@ -9,16 +9,16 @@ import {
 } from "./formatTimeExt.js";
 import fastEqual from "fast-deep-equal";
 let API_RESPONSE = {};
-let MESSAGE_IDS = ["1221079956025770056", "1221079979459350639"];
+let MESSAGE_IDS = ["1226246257849143366", "1226246259283595304"];
 let COUNTDOWN;
 
-const CLOSE_TIME = new Date(1711227600000);
+const CLOSE_TIME = new Date(1712433900000);
 
 const client = new Client({
   intents: [IntentsBitField.Flags.Guilds],
 });
 
-client.on("ready", () => {
+client.on("ready", async () => {
   console.log("I am ready!");
 
   check();
@@ -29,7 +29,7 @@ client.on("ready", () => {
       clearInterval(COUNTDOWN);
 
       const channel = client.channels.cache.get("1158021544887451699");
-      const message = await channel.messages.fetch("1221080006747357295");
+      const message = await channel.messages.fetch("1226246262337044494");
 
       await message.edit(`Volebné miestnosti sú zatvorené!`);
 
@@ -44,7 +44,7 @@ client.on("ready", () => {
     const seconds = countdown.seconds();
 
     const channel = client.channels.cache.get("1158021544887451699");
-    const message = await channel.messages.fetch("1221080006747357295");
+    const message = await channel.messages.fetch("1226246262337044494");
 
     await message.edit(
       `Do zatvorenia volebných miestností ostáva: **<t:${Math.round(
@@ -94,7 +94,7 @@ async function check() {
   }
 
   const currentDataMessage = await channel.messages.fetch(
-    "1221079990058090499"
+    "1226246261150187621"
   );
   const lastChange = moment(Date.now())
     .tz("Europe/Bratislava")
